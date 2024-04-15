@@ -53,4 +53,4 @@ is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
 
 ## Answer
-My code first starts out with the initialization of the current route, which get us $n$. We then have the main while loop which runs $i$ times and for each time it runs it also has $n$ from the combination of the randomization and two opt swap and getting the new length. So, in total we have $i * n + n$ which can be simplified to $i * n$. So my worst case time complexity is $\Theta(i * n)$.
+My code first starts out with the initialization of the current route, which get us $n$. We then have the main while loop which runs $i$ times and for each time it runs it also has $n$ from the combination of the randomization and two opt swap and getting the new length. So, in total we have $i * n + n$ which can be simplified to $i * n$. So my worst case time complexity is $\Theta(i * n)$ where $n$ is the size of the input and $i$ is the number of iterations of randomization that the route goes through.
