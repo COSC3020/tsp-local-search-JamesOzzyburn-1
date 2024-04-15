@@ -37,8 +37,8 @@ function tsp_ls(distance_matrix) {
         var i = Math.floor(Math.random() * numberOfCities - 1);
         var k = Math.floor(Math.random() * numberOfCities - 1);
         while(k == i) {
-            var i = Math.floor(Math.random() * numberOfCities - 1);
-            var k = Math.floor(Math.random() * numberOfCities - 1);
+            i = Math.floor(Math.random() * numberOfCities - 1);
+            k = Math.floor(Math.random() * numberOfCities - 1);
         }
 
         var newRoute = twoOptSwap(currentRoute, i, k); //Get our new route using twoOptSwap
