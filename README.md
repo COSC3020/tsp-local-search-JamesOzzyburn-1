@@ -1,3 +1,4 @@
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/C_k9ew3E)
 # Traveling Salesperson Problem -- Local Search
 
 This exercise is about the Traveling Salesperson Problem I mentioned in the
@@ -50,3 +51,6 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.
+
+## Answer
+My code first starts out by initializing by the current route which entails three for loops all iterating from $0$ to $n$ where $n$ is the number of cities. This gets us $n + n + n$ which can be simplified to $n$. We also then calculate $n!$ as that is the maximum number of time we will randomize which takes $n$. So in total for the beginning part of the code we have $n$. We then enter the main while loop of the code in which we randomize the cities and use the two opt swap. The maximum logical times we can randomize a list of length $n$ is $n!$ and we additionally have code that finds the length of our new route which runs from $0$ to $n-1$ so for the while loop we have a total runtime of $n!*n$. So if we add our two parts together we get $n + (n! * n)$. So for my implementation the worst case time complexity is $\Theta(n + (n! * n))$.
