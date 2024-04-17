@@ -28,9 +28,11 @@ function tsp_ls(distance_matrix) {
     }
     incumbentLength += distance_matrix[currentRoute[currentRoute.length - 1]][currentRoute[0]]; //We also have to add the length from the last to the start
 
-    var iteration = 0; //Number of overall iterations to try
+    var iteration = 0 //Number of overall iterations to try
     var moreImprovement = 0; //Number of iterations after it doesnt improve to keep trying counter
-    while (iteration < 10000000) { //Just have it run 10,000,000 times. I'm not really going off of anything here just feel like 10 million is good enough.
+    var maxIteration = calcFact(numberOfCities);
+    //console.log(maxIteration);
+    while (iteration < maxIteration) { //Run n! times.
         var improved = false; //This is to help stop
 
         //Make i and k random then run until they are not the same anymore
@@ -58,7 +60,8 @@ function tsp_ls(distance_matrix) {
             moreImprovement = 0; //Reset our more improvement counter
         }
 
-        if (!improved) { //Here is my stopping criteria. 
+        //Here is my stopping criteria.
+        if (!improved) { 
             moreImprovement++; 
             if(moreImprovement > 101) { //If it hasnt improved, run 100 more times and if it still hasnt improved after that then exit. There really isnt no logic behind 100 I just feel like thats enough chances.
                 break;
@@ -68,9 +71,20 @@ function tsp_ls(distance_matrix) {
     return incumbentLength; //Return the length
 }
 
-function twoOptSwap(route, i, k) { //This just the pseudo code but in js
+//This just the pseudo code but in js
+function twoOptSwap(route, i, k) { 
     var newRoute = route.slice(0, i);
     newRoute.push(...route.slice(i, k + 1).reverse()); 
     newRoute.push(...route.slice(k + 1));
     return newRoute;
+}
+
+//Calculate factorial
+function calcFact(n) {
+    if (n <= 1) {
+        return 1;
+    }
+    else {
+        return n * calcFact(n - 1);
+    }
 }
